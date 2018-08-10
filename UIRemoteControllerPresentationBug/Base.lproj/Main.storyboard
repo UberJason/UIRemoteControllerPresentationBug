@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="UIRemoteControllerPresentationBug" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <segue destination="nG7-fX-Qzx" kind="presentation" identifier="presentInitial" id="aVo-AC-v6P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--First Presented View Controller-->
+        <scene sceneID="VuJ-Xg-0Sg">
+            <objects>
+                <viewController id="nG7-fX-Qzx" customClass="FirstPresentedViewController" customModule="UIRemoteControllerPresentationBug" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g1e-Cs-PXk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HcH-5K-Viz">
+                                <rect key="frame" x="102" y="70" width="170" height="30"/>
+                                <state key="normal" title="Present Over Full Screen">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="presentOverFullScreen:" destination="nG7-fX-Qzx" eventType="touchUpInside" id="yeW-kL-idP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5v-Ha-NRI">
+                                <rect key="frame" x="76" y="141" width="223" height="30"/>
+                                <state key="normal" title="Present UIActivityViewController">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="presentUIActivityViewController:" destination="nG7-fX-Qzx" eventType="touchUpInside" id="51K-6o-5gU"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qbG-Go-EJW">
+                                <rect key="frame" x="20" y="227" width="335" height="284.5"/>
+                                <mutableString key="text">When presenting a normal view controller with modalPresentationStyle = .overFullScreen, we can preserve the custom frame of this view controller.
+
+When presenting a UIActivityViewController and then selecting an option like "Save to Files" which presents a full-screen remote controller, we don't have the option of specifying modalPresentationStyle = .overFullScreen - and we lose our custom frame after the remote controller is dismissed.
+
+Even manually re-calculating the custom frame in containerViewWillLayoutSubviews() in the custom UIPresentationController leads to a momentary display of the incorrect frame, which then "pops" back into the correct frame.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.054901960780000002" green="0.63529411759999999" blue="0.094117647060000004" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="e5v-Ha-NRI" firstAttribute="top" secondItem="HcH-5K-Viz" secondAttribute="bottom" constant="41" id="7if-0X-BLt"/>
+                            <constraint firstItem="HcH-5K-Viz" firstAttribute="centerX" secondItem="g1e-Cs-PXk" secondAttribute="centerX" id="BwP-0h-RVR"/>
+                            <constraint firstItem="HcH-5K-Viz" firstAttribute="centerX" secondItem="e5v-Ha-NRI" secondAttribute="centerX" id="TRp-Rg-Y7g"/>
+                            <constraint firstItem="qbG-Go-EJW" firstAttribute="leading" secondItem="tVM-I6-Nyb" secondAttribute="leading" constant="20" id="aQd-57-wIc"/>
+                            <constraint firstItem="HcH-5K-Viz" firstAttribute="top" secondItem="tVM-I6-Nyb" secondAttribute="top" constant="50" id="hDC-Pu-Wvp"/>
+                            <constraint firstAttribute="trailing" secondItem="qbG-Go-EJW" secondAttribute="trailing" constant="20" id="kAU-Ol-hwj"/>
+                            <constraint firstItem="qbG-Go-EJW" firstAttribute="top" secondItem="e5v-Ha-NRI" secondAttribute="bottom" constant="56" id="zHL-eQ-lPZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tVM-I6-Nyb"/>
+                    </view>
+                    <connections>
+                        <segue destination="QxB-qr-QqL" kind="presentation" identifier="presentOverFullScreen" id="8kg-1U-Obd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xLj-1a-hRv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="922" y="659"/>
+        </scene>
+        <!--Over Full Screen Presented View Controller-->
+        <scene sceneID="w3G-Lf-lqP">
+            <objects>
+                <viewController id="QxB-qr-QqL" customClass="OverFullScreenPresentedViewController" customModule="UIRemoteControllerPresentationBug" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dPY-iX-OMd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wnb-DR-PhF">
+                                <rect key="frame" x="160.5" y="375" width="54" height="30"/>
+                                <state key="normal" title="Dismiss"/>
+                                <connections>
+                                    <action selector="dismiss:" destination="QxB-qr-QqL" eventType="touchUpInside" id="qBA-0R-iKF"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After dismissing this view controller, the bounds of the presenting green controller should be the same as before." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dy-0f-XpL">
+                                <rect key="frame" x="20" y="226" width="335" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2dy-0f-XpL" firstAttribute="centerX" secondItem="Wnb-DR-PhF" secondAttribute="centerX" id="Bhc-RN-ayj"/>
+                            <constraint firstItem="2dy-0f-XpL" firstAttribute="top" secondItem="A5M-pr-VgT" secondAttribute="top" constant="206" id="X9Q-YI-tPN"/>
+                            <constraint firstItem="A5M-pr-VgT" firstAttribute="bottom" secondItem="Wnb-DR-PhF" secondAttribute="bottom" constant="262" id="ehL-dh-IWk"/>
+                            <constraint firstAttribute="trailing" secondItem="2dy-0f-XpL" secondAttribute="trailing" constant="20" id="quy-g6-5ZU"/>
+                            <constraint firstItem="2dy-0f-XpL" firstAttribute="leading" secondItem="dPY-iX-OMd" secondAttribute="leading" constant="20" id="rwR-5h-Ig5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="A5M-pr-VgT"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zfW-34-F4I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1713" y="656"/>
+        </scene>
+    </scenes>
+</document>
