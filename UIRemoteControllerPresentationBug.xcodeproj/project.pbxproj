@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F1A325B211DDD7A006491F1 /* OverFullScreenPresentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1A325A211DDD7A006491F1 /* OverFullScreenPresentedViewController.swift */; };
+		1F1A325D211DE236006491F1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1F1A325C211DE236006491F1 /* README.md */; };
 		1F5F2E71211DD6F400543BAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5F2E70211DD6F400543BAE /* AppDelegate.swift */; };
 		1F5F2E73211DD6F400543BAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5F2E72211DD6F400543BAE /* ViewController.swift */; };
 		1F5F2E76211DD6F400543BAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F5F2E74211DD6F400543BAE /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		1F1A325A211DDD7A006491F1 /* OverFullScreenPresentedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverFullScreenPresentedViewController.swift; sourceTree = "<group>"; };
+		1F1A325C211DE236006491F1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1F5F2E6D211DD6F400543BAE /* UIRemoteControllerPresentationBug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIRemoteControllerPresentationBug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5F2E70211DD6F400543BAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F5F2E72211DD6F400543BAE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +52,7 @@
 		1F5F2E64211DD6F400543BAE = {
 			isa = PBXGroup;
 			children = (
+				1F1A325C211DE236006491F1 /* README.md */,
 				1F5F2E6F211DD6F400543BAE /* UIRemoteControllerPresentationBug */,
 				1F5F2E6E211DD6F400543BAE /* Products */,
 			);
@@ -150,6 +153,7 @@
 			files = (
 				1F5F2E7B211DD6F700543BAE /* LaunchScreen.storyboard in Resources */,
 				1F5F2E78211DD6F700543BAE /* Assets.xcassets in Resources */,
+				1F1A325D211DE236006491F1 /* README.md in Resources */,
 				1F5F2E76211DD6F400543BAE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
